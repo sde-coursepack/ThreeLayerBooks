@@ -4,7 +4,6 @@ public class Book {
     private final String isbn;
     private String title;
     private String authorName;
-
     private int weeksOnList;
 
     public Book(String isbn, String title, String authorName, int weeksOnList) {

@@ -1,5 +1,12 @@
 plugins {
     id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version "0.0.13"
+}
+
+javafx {
+    version = '18.0.1'
+    modules = [ 'javafx.controls', 'javafx.fxml']
 }
 
 jar {
@@ -21,6 +28,8 @@ repositories {
 dependencies {
     implementation group: 'org.json', name: 'json', version: '20220924'
     implementation 'org.jetbrains:annotations:20.1.0'
+    implementation group: 'org.openjfx', name: 'javafx', version: '18.0.1'
+
 
     testImplementation group: 'org.mockito', name: 'mockito-core', version: '4.8.0'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'

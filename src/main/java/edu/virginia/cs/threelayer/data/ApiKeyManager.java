@@ -2,7 +2,7 @@ package edu.virginia.cs.threelayer.data;
 
 import java.io.*;
 
-public class ApiKeyFactory {
+public class ApiKeyManager {
     private static final String BESTSELLERS_KEY_FILENAME = "nytimes.key";
 
     public String getBestSellersAPIKey() {

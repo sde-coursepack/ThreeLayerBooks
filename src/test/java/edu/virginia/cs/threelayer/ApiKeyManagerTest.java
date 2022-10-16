@@ -1,14 +1,14 @@
 package edu.virginia.cs.threelayer;
 
-import edu.virginia.cs.threelayer.data.ApiKeyFactory;
+import edu.virginia.cs.threelayer.data.ApiKeyManager;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-public class ApiKeyFactoryTest {
+public class ApiKeyManagerTest {
     @Test
     public void getBestSellersAPI() {
-        ApiKeyFactory factory = new ApiKeyFactory();
+        ApiKeyManager factory = new ApiKeyManager();
         assertNotNull(factory.getBestSellersAPIKey());
     }
 }

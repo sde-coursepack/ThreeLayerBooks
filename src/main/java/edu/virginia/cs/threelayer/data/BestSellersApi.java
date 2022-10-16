@@ -19,7 +19,7 @@ public class BestSellersApi {
     public static String apiKey;
 
     public BestSellersApi() {
-        ApiKeyFactory factory = new ApiKeyFactory();
+        ApiKeyManager factory = new ApiKeyManager();
         apiKey = factory.getBestSellersAPIKey();
     }
 
@@ -60,8 +60,7 @@ public class BestSellersApi {
     private URL getHistoricalBestSellersAddress(ListName listName, Date date) throws MalformedURLException {
         DateStringFactory dateStringFactory = new DateStringFactory();
         String dateString = dateStringFactory.getDateString(date);
-        String urlString = API_LINK + getEncodedListName(listName) + "?" + getApiKeyString() +
-                "bestsellers-date=" + dateString;
+        String urlString = API_LINK + dateString + "/" + getEncodedListName(listName) + "?" + getApiKeyString();
         return new URL(urlString);
     }
 
