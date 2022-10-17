@@ -26,10 +26,6 @@ public class GUIController {
     @FXML
     private TableView<Book> tableView;
     @FXML
-    private TableColumn<Book, String> titleColumn, authorColumn;
-    @FXML
-    private TableColumn<Book, Integer> isbnColumn, weeksColumn;
-    @FXML
     private ChoiceBox<ListName> listSelector;
     @FXML
     private DatePicker datePicker;
@@ -38,16 +34,12 @@ public class GUIController {
         service = new BestSellersService();
         initDatePicker();
         initListSelector();
-        initTableView();
+        updateTable();
     }
 
     private void initDatePicker() {
         LocalDate today = LocalDate.now();
         datePicker.setValue(today);
-    }
-
-    private void initTableView() {
-        updateTable();
     }
 
     private void initListSelector() {
