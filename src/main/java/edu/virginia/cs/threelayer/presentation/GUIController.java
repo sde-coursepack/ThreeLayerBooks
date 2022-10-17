@@ -47,11 +47,6 @@ public class GUIController {
     }
 
     private void initTableView() {
-        //initialize columns
-        titleColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
-        authorColumn.setCellValueFactory(new PropertyValueFactory<>("authorName"));
-        isbnColumn.setCellValueFactory(new PropertyValueFactory<>("isbn"));
-        weeksColumn.setCellValueFactory(new PropertyValueFactory<>("weeksOnList"));
         updateTable();
     }
 

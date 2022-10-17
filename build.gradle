@@ -4,6 +4,13 @@ plugins {
     id 'org.openjfx.javafxplugin' version "0.0.13"
 }
 
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+
 javafx {
     version = '18.0.1'
     modules = [ 'javafx.controls', 'javafx.fxml']
