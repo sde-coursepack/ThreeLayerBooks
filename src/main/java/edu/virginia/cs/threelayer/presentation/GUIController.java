@@ -9,9 +9,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -58,7 +56,7 @@ public class GUIController {
     }
 
     @FXML
-    public void updateList() {
+    public void updateListSelection() {
         try {
             updateTable();
         } catch (RuntimeException e) {
@@ -67,7 +65,7 @@ public class GUIController {
     }
 
     @FXML
-    public void updateDate() {
+    public void updateListAfterDateChange() {
         try {
             updateTable();
         } catch (RuntimeException e) {
