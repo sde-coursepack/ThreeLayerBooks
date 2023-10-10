@@ -48,8 +48,8 @@ public class GUIController {
     }
 
     private void updateTable() {
-        BestSellersList bookList = service.getHistoricBestSellerList(listSelector.getValue(), Date.from(
-                datePicker.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()));
+        BestSellersList bookList = service.getHistoricBestSellerList(listSelector.getValue(),
+                Date.from(datePicker.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()));
         ObservableList<Book> obsList = FXCollections.observableList(bookList.getAllBooksInOrderOfRank());
         tableView.getItems().clear();
         tableView.getItems().addAll(obsList);

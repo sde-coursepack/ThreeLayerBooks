@@ -71,9 +71,9 @@ public class BestSellersApi {
     public String getEncodedListName(ListName listName) {
         return switch (listName) {
             case COMBINED_NONFICTION -> "combined-print-and-e-book-nonfiction";
-            case HARDCOVER_NONFICTION -> "hardcover-nonfiction.json";
-            case COMBINED_FICTION -> "combined-print-and-e-book-fiction.json";
-            case HARDCOVER_FICTION -> "hardcover-fiction.json";
+            case HARDCOVER_NONFICTION -> "hardcover-nonfiction";
+            case COMBINED_FICTION -> "combined-print-and-e-book-fiction";
+            case HARDCOVER_FICTION -> "hardcover-fiction";
             case EBOOK_FICTION -> "e-book-fiction";
             case EBOOK_NONFICTION -> "e-book-nonfiction";
         };

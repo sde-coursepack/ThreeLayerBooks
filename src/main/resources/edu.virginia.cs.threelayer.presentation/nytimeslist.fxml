@@ -9,8 +9,12 @@
    <center>
       <TableView fx:id="tableView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <columns>
-            <TableColumn text="Title"><cellValueFactory><PropertyValueFactory property="title" /></cellValueFactory></TableColumn>
-            <TableColumn text="Author"><cellValueFactory><PropertyValueFactory property="authorName" /></cellValueFactory></TableColumn>
+            <TableColumn text="Title">
+               <cellValueFactory><PropertyValueFactory property="title" />
+               </cellValueFactory></TableColumn>
+            <TableColumn text="Author">
+               <cellValueFactory><PropertyValueFactory property="authorName" />
+               </cellValueFactory></TableColumn>
             <TableColumn text="ISBN"><cellValueFactory><PropertyValueFactory property="isbn" /></cellValueFactory></TableColumn>
             <TableColumn text="Weeks"><cellValueFactory><PropertyValueFactory property="weeksOnList" /></cellValueFactory></TableColumn>
          </columns>
