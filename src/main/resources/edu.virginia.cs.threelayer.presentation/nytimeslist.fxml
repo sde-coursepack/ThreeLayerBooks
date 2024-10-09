@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.control.cell.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity"
+            minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="600.0" prefWidth="700.0"
+            xmlns="http://javafx.com/javafx/17.0.2-ea"
+            xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="edu.virginia.cs.threelayer.presentation.GUIController">
    <center>
       <TableView fx:id="tableView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
@@ -21,14 +26,25 @@
       </TableView>
    </center>
    <top>
-      <HBox alignment="CENTER" prefHeight="27.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" prefHeight="27.0" prefWidth="600.0" spacing="1.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="NY Times List Choice" />
+            <Label text="NY Times List Choice">
+               <padding>
+                  <Insets top="3.0" />
+               </padding></Label>
             <ChoiceBox fx:id="listSelector" onAction="#updateListSelection" prefWidth="150.0" />
             <Separator opacity="0.0" prefHeight="0.0" prefWidth="33.0" />
             <Label text="Date" />
-            <DatePicker fx:id="datePicker" onAction="#updateListAfterDateChange" />
+            <DatePicker fx:id="datePickerWidget" onAction="#updateListAfterDateChange" />
          </children>
       </HBox>
    </top>
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="33.0" prefWidth="600.0" spacing="4.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Longest Running Book:" />
+            <Label fx:id="longestRunningLabel" text="Select a list" />
+         </children>
+      </HBox>
+   </bottom>
 </BorderPane>

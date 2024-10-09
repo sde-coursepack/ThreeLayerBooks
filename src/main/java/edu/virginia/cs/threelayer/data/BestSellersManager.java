@@ -6,8 +6,8 @@ import org.json.JSONObject;
 
 import java.util.*;
 
-public class BestSellersFacade {
-    private BestSellersApi api = new BestSellersApi();
+public class BestSellersManager {
+    private final BestSellersApi api = new BestSellersApi();
 
     public BestSellersList getCurrentBestSellerList(ListName listName) {
         JSONObject apiJson = api.getCurrentBestSellers(listName);

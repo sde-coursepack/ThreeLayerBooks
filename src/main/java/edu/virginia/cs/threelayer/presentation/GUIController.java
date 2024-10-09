@@ -9,6 +9,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 
 import java.time.LocalDate;
@@ -26,21 +27,24 @@ public class GUIController {
     @FXML
     private ChoiceBox<ListName> listSelector;
     @FXML
-    private DatePicker datePicker;
+    private DatePicker datePickerWidget;
+    @FXML
+    private Label longestRunningLabel;
 
     public void initialize() {
         service = new BestSellersService();
-        initDatePicker();
-        initListSelector();
+        initializeDatePicker();
+        initializeListSelector();
         updateTable();
+        updateLongestRunning();
     }
 
-    private void initDatePicker() {
+    private void initializeDatePicker() {
         LocalDate today = LocalDate.now();
-        datePicker.setValue(today);
+        datePickerWidget.setValue(today);
     }
 
-    private void initListSelector() {
+    private void initializeListSelector() {
         listSelector.setValue(ListName.COMBINED_FICTION);
         List<ListName> listNameList = Arrays.asList(ListName.values());
         ObservableList<ListName> nameList = FXCollections.observableList(listNameList);
@@ -49,16 +53,23 @@ public class GUIController {
 
     private void updateTable() {
         BestSellersList bookList = service.getHistoricBestSellerList(listSelector.getValue(),
-                Date.from(datePicker.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()));
+                Date.from(datePickerWidget.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()));
         ObservableList<Book> obsList = FXCollections.observableList(bookList.getAllBooksInOrderOfRank());
         tableView.getItems().clear();
         tableView.getItems().addAll(obsList);
+    }
+
+    private void updateLongestRunning() {
+        var longestRunningBestseller = service.getLongestCurrentBestSeller(listSelector.getValue());
+        longestRunningLabel.setText(longestRunningBestseller.getTitle() + " by " +
+                longestRunningBestseller.getAuthorName());
     }
 
     @FXML
     public void updateListSelection() {
         try {
             updateTable();
+            updateLongestRunning();
         } catch (RuntimeException e) {
             System.out.println(e);
         }
@@ -68,6 +79,7 @@ public class GUIController {
     public void updateListAfterDateChange() {
         try {
             updateTable();
+            updateLongestRunning();
         } catch (RuntimeException e) {
             System.out.println(e);
         }
