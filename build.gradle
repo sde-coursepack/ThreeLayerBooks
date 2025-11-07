@@ -6,7 +6,7 @@ jar {
     archivesBaseName = "ThreeLayerApp"
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     manifest {
-        attributes "Main-class": "edu.virginia.cs.threelayer.presentation.args.Main"
+        attributes "Main-class": "edu.virginia.cs.threelayer.presentation.CommandLineArgs"
     }
 
     from {
